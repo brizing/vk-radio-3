@@ -1,0 +1,89 @@
+
+<!-- saved from url=(0035)http://radio.heroeswm.ru/player.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<title>Радио ГВД</title>
+<script type="text/javascript" src="./i/jquery.js"></script><style type="text/css">#maxthon-1eec22d4-0232-4212-8283-6f2ac8f967-iframe{display:block!important;position:absolute!important;visibility:visible!important;z-index:2147483647!important;border-style:none!important;opacity:1!important;margin:0!important;padding:0!important;box-shadow:0 0 5px rgba(0,0,0,.3)!important;border:1px solid #b3b3b3!important}</style>
+<script type="text/javascript" src="./i/swfobject.js"></script>
+<style>
+BODY{background:#000 url(i/player-bg.jpg) no-repeat;font: 12px Verdana;color:#DDBC8B;margin:0;padding:0;}
+#radioswf{padding:0;margin:0;width: 240px; height: 60px;background:url('i/playern.gif');}
+#radioswf *{padding:0;margin:0;}
+IMG{border:0}
+#menu{width:500px;}
+#menu TD{text-align:center;width:50%;font:12px Verdana;}
+#menu A{display:block;font:12px Verdana;text-decoration:none;color:#DDBC8B;}
+#clock{margin:10px 0 5px 0;}
+</style>
+</head><style></style>
+<body>
+<div style="margin-top:70px;height:80px;width:600px;"><center><table id="menu"><tbody><tr>
+<td><a href="http://www.heroeswm.ru/forum_messages.php?tid=2522483" target="_blank"><img src="./i/player-bt-work.png"></a>
+<a href="http://www.heroeswm.ru/forum_thread.php?id=28" target="_blank" title="форум радио"><img src="./i/player-bt-forum.png"></a><a href="https://vk.com/album-14236898_123303156" target="_blank">Наши ведущие</a></td>
+<td><a href="http://radio.heroeswm.ru/" target="_blank"><img src="./i/player-bt-prog.png"></a><a href="http://radio.heroeswm.ru/hitsong.php" target="_blank"><img src="./i/player-bt-rate.png"></a>Слушателей online: <span id="sc_user">63</span></td>
+</tr></tbody></table></center></div>
+
+<div style="text-align:center;width:600px;">
+<div id="clock">11:24:42</div>
+<a href="http://radio.heroeswm.ru/play.pls?v=1" title="Прослушать в Winamp"><img src="./i/player-bt-pwa.png"></a><a href="http://radio.heroeswm.ru/play.asx?v=1" title="Прослушать в Windows Media Player"><img src="./i/player-bt-pwm.png"></a><a href="http://radio.heroeswm.ru/play.ram?v=1" title="Прослушать в Real Media Player"><img src="./i/player-bt-prp.png"></a>
+</div>
+
+<div style="width:600px;"><center><table cellspacing="0" cellpadding="0"><tbody><tr>
+<td><img onclick="setHitSong(&#39;ne&#39;)" style="cursor:pointer;" title="мне не нравится текущая композиция" src="./i/player-bt-rate-m.png"><img onclick="setHitSong(&#39;da&#39;)" style="cursor:pointer;" title="мне нравится текущая композиция" src="./i/player-bt-rate-p.png"></td>
+<td><div id="radioswf"><embed type="application/x-shockwave-flash" src="http://radio.heroeswm.ru/player.swf?url=%2F%2Frdj.heroeswm.ru%3A8000/;&amp;autoplay=1&amp;title=heroeswm.ru" width="240" height="60" style="undefined" id="rswf" name="rswf" quality="high" wmode="transparent"></div></td>
+<td><a href="skype:fgoxy666?chat"><img src="./i/player-bt-call.png"></a><a href="" title="обновить окно"><img src="./i/player-bt-f5.png"></a></td>
+</tr></tbody></table></center>
+</div>
+
+<div style="width:600px;height:80px;text-align:center;padding-top:5px;">
+В эфире: <span id="sc_title" style="font-weight:bold">Максимус (Геройское Радио)</span>
+<div style="margin-top:5px;" id="sc_song" title="Весенние посиделки">Весенние посиделки</div>
+</div>
+
+<div style="width:600px;text-align:right;">
+<table style="margin:0 13px 0 7px" width="580" cellpadding="0" cellspacing="0"><tbody><tr>
+<td><a href="http://vk.com/radioheroeswm" target="_blank"><img src="./i/player-bt-vk.png"></a></td>
+<td align="right">
+</td>
+</tr>
+</tbody></table>
+</div>
+<script>
+var hs_song = '' ; var hs_rj = '' ;
+var so = new SWFObject("http://radio.heroeswm.ru/player.swf?url=%2F%2Frdj.heroeswm.ru%3A8000/;&autoplay=1&title=heroeswm.ru","rswf","240","60","8");
+so.addParam("wmode", "transparent");
+so.write("radioswf");
+var zd=new Date();
+var z=3+zd.getTimezoneOffset()/60;
+setInterval(function(){var t=new Date();var h=t.getHours()+z;var m=t.getMinutes();var s=t.getSeconds();if(h>23)h=h-24;if(h<0)h=h+24;$("#clock").html((h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s));},1000);
+function loadTalk()
+{
+	/*$.get('online.html?'+Math.random()*10000,'',
+	function( data )
+	{
+		var ddo = data.split("|");
+		if( ddo[0] == 1 )
+		{
+			$("#sc_user").html( ddo[1] ) ;
+			$("#sc_title").html( ddo[2] ) ;
+			var song = $("#sc_song") ;
+			song.attr( "title" , ddo[3] ) ;
+			song.html( ddo[3].substr( 0, 50 ) ) ;
+			hs_rj = ddo[2] ;
+			hs_song = ddo[3] ;
+		}
+		setTimeout( loadTalk, 5*1000 ) ;
+	});*/
+}
+setTimeout( loadTalk, 1 ) ;
+function setHitSong(a)
+{
+	$.post( "/hitsong.php", {hit:a,song:hs_song,rj:hs_rj}, function(d)
+	{
+		alert( d )
+	} );
+}
+</script>
+</body></html>
